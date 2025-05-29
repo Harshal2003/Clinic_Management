@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <title>Dashboard</title>
+</head>
+<body> 
+    <div class="dashboard-body">
+        <div class="side-bar">
+            <img src="/static/images/logo.png" alt="logo" class="dashboard-logo">
+            <ul class="nav-buttons">
+                <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                <li><a href="{{ url_for('add_patient') }}">Add Patient</a></li>
+                <li><a href="{{ url_for('add_doctor') }}">Add Doctor</a></li>
+                <li><a href="{{ url_for('add_appointment') }}">Add Appointment</a></li>
+            </ul>
+        </div>
+        <div class="logout-container">
+            <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+        </div>
+
+
+        <div class="main-block">
+            <div class="header">
+                <img src="/static/images/receptionist.png" class="profile-receptionist">
+                <h2 class="header-line-dashboard">Welcome to Health Clinic</h2>
+            </div>
+            <div class="cards">
+                <a href="{{ url_for('view_patients') }}" style="text-decoration: none; color: inherit;">
+                    <div class="card">
+                        View Patients
+                    </div>
+                </a>
+                <a href="{{ url_for('view_doctors') }}" style="text-decoration: none; color: inherit;">
+                    <div class="card">
+                        View Doctors
+                    </div>
+                </a>
+                <a href="{{ url_for('view_appointments') }}" style="text-decoration: none; color: inherit;">
+                    <div class="card">
+                        View Appointments
+                    </div>
+                </a>
+            </div>
+
+            <!-- Purpose Paragraph -->
+            <div class="app-description">
+                <p>
+                    This Health Clinic Management System is designed to simplify the day-to-day operations of a clinic.
+                    It provides a user-friendly interface to manage patient records, doctor details, and appointment scheduling efficiently.
+                    By streamlining these processes, the system ensures better patient care, reduces administrative workload,
+                    and maintains organized, easily accessible medical data for smoother operations.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

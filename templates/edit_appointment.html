@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <title>Edit Appointment</title>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Edit Appointment</h2>
+        <form method="POST">
+            <label>Patient ID:</label>
+            <input type="text" name="patient_id" value="{{ appointment[1] }}" required>
+
+            <label>Doctor ID:</label>
+            <input type="text" name="doctor_id" value="{{ appointment[2] }}" required>
+
+            <label>Date:</label>
+            <input type="date" name="date" value="{{ appointment[3] }}" required>
+
+            <button type="submit">Update</button>
+        </form>
+    </div>
+</body>
+</html>

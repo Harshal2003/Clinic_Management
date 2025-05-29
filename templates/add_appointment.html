@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Appointment</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="appointment-form-container">
+        <div class="appointment-side-bar">
+            <img src="/static/images/logo.png" alt="logo" class="dashboard-logo">
+            <ul class="nav-buttons">
+                <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                <li><a href="{{ url_for('add_patient') }}">Add Patient</a></li>
+                <li><a href="{{ url_for('add_doctor') }}">Add Doctor</a></li>
+                <li><a href="{{ url_for('add_appointment') }}">Add Appointment</a></li>
+            </ul>
+        </div>
+        <div class="appointment-form">
+            <h2>Add Appointment</h2>
+            <form method="POST">
+                <label>Patient:</label>
+                <select name="patient_id" required>
+                    {% for patient in patients %}
+                        <option value="{{ patient[0] }}">{{ patient[1] }}</option>
+                    {% endfor %}
+                </select>
+
+                <label>Doctor:</label>
+                <select name="doctor_id" required>
+                    {% for doctor in doctors %}
+                        <option value="{{ doctor[0] }}">{{ doctor[1] }}</option>
+                    {% endfor %}
+                </select>
+
+                <label>Date:</label>
+                <input type="date" name="date" required>
+
+                <label>Time:</label>
+                <input type="time" name="time" required>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

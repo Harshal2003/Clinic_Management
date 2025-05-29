@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <title>Edit Doctor</title>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Edit Doctor</h2>
+        <form method="POST">
+            <label>Name:</label>
+            <input type="text" name="name" value="{{ doctor[1] }}" required>
+
+            <label>Specialization:</label>
+            <input type="text" name="specialization" value="{{ doctor[2] }}" required>
+
+            <label>Gender:</label>
+            <select name="gender" required>
+                <option value="Male" {% if doctor[3] == 'Male' %}selected{% endif %}>Male</option>
+                <option value="Female" {% if doctor[3] == 'Female' %}selected{% endif %}>Female</option>
+                <option value="Other" {% if doctor[3] == 'Other' %}selected{% endif %}>Other</option>
+            </select>
+
+            <button type="submit">Update</button>
+        </form>
+    </div>
+</body>
+</html>

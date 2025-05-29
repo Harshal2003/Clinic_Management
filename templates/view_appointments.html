@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <title>Appointment List</title>
+</head>
+<body>
+    <div class="appointment-list-container">
+        <div class="appointment-list-side-bar">
+            <img src="/static/images/logo.png" alt="logo" class="dashboard-logo">
+            <ul class="nav-buttons">
+                <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                <li><a href="{{ url_for('add_patient') }}">Add Patient</a></li>
+                <li><a href="{{ url_for('add_doctor') }}">Add Doctor</a></li>
+                <li><a href="{{ url_for('add_appointment') }}">Add Appointment</a></li>
+            </ul>
+        </div>
+
+        <div class="appointment-list">
+            <h2>All Appointments</h2>
+            <table class="appointment-table">
+                <thead class="appointment-thead">
+                    <tr>
+                        <th>ID</th><th>Patient ID</th><th>Doctor ID</th><th>Date</th><th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for app in appointments %}
+                    <tr>
+                        <td>{{ app[0] }}</td>
+                        <td>{{ app[1] }}</td>
+                        <td>{{ app[2] }}</td>
+                        <td>{{ app[3] }}</td>
+                        <td>
+                            <a href="{{ url_for('edit_appointment', appointment_id=app[0]) }}" class="action-btn edit-btn">Edit</a> |
+                            <a href="{{ url_for('delete_appointment', appointment_id=app[0]) }}" class="action-btn delete-btn" onclick="return confirm('Are you sure?')">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
